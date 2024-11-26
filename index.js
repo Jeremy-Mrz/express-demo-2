@@ -26,8 +26,8 @@ app.get("/movies", (req, res) => {
 });
 
 app.get("/movies/:id", (req, res) => {
-  //Je peux récupérer un élément dynamique de mon URL en précisant ":" avant le nom du segment URL, et récupérer cette information
-  //de la requête req.params.le-nom-de-mon-element-dynamique(id)
+  //Je peux préciser qu'un élément de mon URL est dynamique en précisant ":" avant le nom du segment URL, 
+  //et récupérer cette information de la requête req.params.le-nom-de-mon-element-dynamique(id)
   const movieId = Number(req.params.id);
   const movie = movies.find((movie) => movie.id === movieId);
   res.json(movie);
