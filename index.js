@@ -17,8 +17,12 @@ app.get("/movies", (req, res) => {
   //Le req.query.le-nom-de-ma-query me permets de récupérer une query de la requête HTTP, dans mon exemple "limit", et de l'utiliser pour ne revoyer
   //qu'un nombre de movies égal à cette limite
   const limit = Number(req.query.limit);
-  const sliceMovies = movies.slice(0, limit);
-  res.json(sliceMovies);
+  if (limit) {
+    const sliceMovies = movies.slice(0, limit);
+    res.json(sliceMovies);
+  } else {
+    res.json(movies);
+  }
 });
 
 app.get("/movies/:id", (req, res) => {
